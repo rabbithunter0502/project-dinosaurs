@@ -1,33 +1,5 @@
 "use strict"
-import jsonDinoData from "./dino.json" assert { type: "json" };
-    // // Preload dino info method which browser support
-    // // Using fetch
-    // async function grabDinoData() {
-    //   const response = await fetch("./dino.json");
-    //   return await response.json();
-    // }
-
-    // // Using import file with es module feature
-    // console.log(jsonDinoData);
-
-    // // XML request (only for refer)
-    // function readTextFile(file, callback) {
-    //   const rawFile = new XMLHttpRequest();
-    //   rawFile.overrideMimeType("application/json");
-    //   rawFile.open("GET", file, true);
-    //   rawFile.responseType = 'json';
-    //   rawFile.onreadystatechange = function() {
-    //       if (rawFile.readyState === 4 && rawFile.status == "200") {
-    //           callback(rawFile.response);
-    //       }
-    //   }
-    //   rawFile.send(null);
-    // }
-
-    // readTextFile("dino.json", function(text){
-    //   const data = JSON.parse(JSON.stringify(text));
-    //   console.log(data);
-    // })
+import jsonDinoData from "./dino.json" assert { type: "json" }
 
     // Create Dino Class
     class Dino {
