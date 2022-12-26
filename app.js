@@ -122,6 +122,36 @@ import jsonDinoData from "./dino.json" assert { type: "json" }
       gridElement.innerHTML = '';
     }
 
+    // Randowm fact
+    function randomOption(min = 0, max = 3) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function generateRandomFact(data) {
+      if (data?.species?.toLowerCase() === 'pigeon' || data['humanName']) {
+        return data?.fact;
+      }
+
+      const option = randomOption();
+      switch (option) {
+        case 0:
+          return data?.heightDifferenct > 1
+          ? `You are taller than ${data?.species}`
+          : `You are taller than ${data?.species}`
+        case 1:
+          return data?.weightDifferenct > 1
+          ? `You are heavier than ${data?.species}`
+          : `You are lighter than ${data?.species}`
+        case 2:
+          return data?.dietDifferenct;
+        default:
+          return data.fact;
+      }
+
+    }
+
     // Show result
     function showResutl(data) {
       const gridElement = document.getElementById('grid');
@@ -135,7 +165,7 @@ import jsonDinoData from "./dino.json" assert { type: "json" }
           <div class="grid-item">
             <h2>${item?.species ?? item?.humanName}</h2>
             <img src="images/${item?.species?.toLowerCase() || 'human'}.png">
-            <p>${item?.fact}</p>
+            <p>${generateRandomFact(item)}</p>
           </div>`;
       })
       .join("");
